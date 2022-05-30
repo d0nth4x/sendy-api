@@ -1,0 +1,25 @@
+{
+  "name": "d0nth4x/sendy-api",
+  "description": "Sendy API wrapper",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "D0nth4x\\SendyApi\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Paweł Drzewiecki",
+      "email": "contact@pdrzewiecki.pl"
+    }
+  ],
+  "require": {
+    "php": "^7.4|^8.0",
+    "guzzlehttp/guzzle": "^7.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5",
+    "fakerphp/faker": "^1.19"
+  }
+}
