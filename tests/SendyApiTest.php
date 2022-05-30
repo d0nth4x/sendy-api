@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use D0nth4x\SendyApi\SendyApi;
+use D0nth4x\SendyApi\SendyApiClient;
 use GuzzleHttp\RequestOptions;
 use PHPUnit\Framework\TestCase;
 
@@ -12,11 +12,11 @@ use PHPUnit\Framework\TestCase;
  */
 final class SendyApiTest extends TestCase
 {
-    private SendyApi $client;
+    private SendyApiClient $client;
 
     public function setUp(): void
     {
-        $this->client = new SendyApi(
+        $this->client = new SendyApiClient(
             $_SERVER['SENDY_SERVER_URI'],
             $_SERVER['SENDY_API_KEY'],
             $_SERVER['SENDY_LIST_ID'],
@@ -33,13 +33,13 @@ final class SendyApiTest extends TestCase
         self::assertSame(200, $response->getStatusCode());
 
         $status = $this->client->getSubscriptionStatus($email);
-        self::assertSame(SendyApi::SUBSCRIPTION_STATUS_SUBSCRIBED, $status);
+        self::assertSame(SendyApiClient::SUBSCRIPTION_STATUS_SUBSCRIBED, $status);
 
         $response = $this->client->unsubscribe($email);
         self::assertSame(200, $response->getStatusCode());
 
         $status = $this->client->getSubscriptionStatus($email);
-        self::assertSame(SendyApi::SUBSCRIPTION_STATUS_UNSUBSCRIBED, $status);
+        self::assertSame(SendyApiClient::SUBSCRIPTION_STATUS_UNSUBSCRIBED, $status);
     }
 
     public function testGetSubscribersCount(): void

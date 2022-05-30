@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\RequestOptions;
 
-class SendyApi
+class SendyApiClient
 {
     public const SUBSCRIPTION_STATUS_SUBSCRIBED = 'Subscribed';
     public const SUBSCRIPTION_STATUS_UNSUBSCRIBED = 'Unsubscribed';
